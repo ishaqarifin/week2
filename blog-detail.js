@@ -4,7 +4,10 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
 })
 let value = params.judul;
 let imag = params.images;
-// image = URL.createObjectURL(image.files[0])
+
+// imag.src = 'data:image/ImageBitmap;based64,' +base64.encode(blob)
+// document.body.appendChild(imag)
+
 let star = params.start;
 let end = params.end;
 let dm = params.dm;
@@ -12,6 +15,7 @@ let icon = params.icon;
 let diffMonth = params.diffMonth;
 let content = params.content;
 
+// imag = URL.createObjectURL(imag.files[0])
 
 let test = document.getElementById('as')
     test.innerHTML = `
@@ -20,7 +24,7 @@ let test = document.getElementById('as')
         <h1>${value}</h1>
         <div class="wrapper">
           <div class="left">
-            ${imag}
+          <img src="${imag}">
           </div>
           <div class="right">
             <div class="duration">

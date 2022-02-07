@@ -142,8 +142,7 @@ function firstBlogContent() {
     </div>
     <div class="blog-content">
       <h4>
-      <a href='blog-detail.html?judul=${blogs[i].title}&images=${blogs[i].image}&start=${blogs[i].start}&end=${blogs[i].end}&dm=${blogs[i].dm}&diffMonth=${blogs[i].diffMonth}&icon=${blogs[i].icon}&content=${blogs[i].content}'
-      target="_blank">
+      <a href='blog-detail.html' target="_blank">
         Pasar Coding di Indonesia Dinilai Masih Menjanjikan</a
         >
       </h4>
