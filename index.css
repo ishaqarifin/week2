@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+body {
+  background-color: #b1d0e0;
+}
+
+nav {
+  display: flex;
+  width: 100vw;
+  height: 10vh;
+  background-color: #6998ab;
+  margin-top: 0;
+}
+ul {
+  list-style: none;
+}
+li {
+  display: inline;
+  margin-left: 40px;
+}
+nav ul li a.list-active {
+  color: #120655;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+img {
+  width: 60px;
+}
+
+.left-side {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  padding-left: 90px;
+}
+
+.right-side {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  display: flex;
+  padding-right: 90px;
+  justify-content: flex-end;
+}
+
+.right-side a {
+  padding: 10px 20px;
+  background-color: #406882;
+  border: 1px solid white;
+  border-radius: 3px;
+}
+
+/* card profile */
+.container {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+}
+.wrapper {
+  display: flex;
+  width: 70%;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.562);
+}
+
+.left {
+  width: 60%;
+  align-items: center;
+  padding: 40px 40px;
+  margin-left: 20px;
+}
+.left p {
+  text-align: justify;
+  margin: 20px 0;
+}
+.codo {
+  display: flex;
+  align-items: center;
+}
+h4 {
+  padding: 5px 10px;
+  background-color: #406882;
+  color: white;
+  margin-right: 10px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+h4:hover {
+  background-color: rgb(45, 45, 133);
+}
+.codo p {
+  cursor: pointer;
+}
+.sosmedList {
+  display: flex;
+  width: 50%;
+  justify-content: space-evenly;
+}
+.sosmedList img {
+  margin-top: 20px;
+  width: 40px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  border: 1px solid black;
+  transition: 1s;
+}
+.sosmedList img:hover {
+  transform: scale(1.3);
+}
+
+.right {
+  width: 40%;
+  padding: 30px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 0 solid #00000033;
+  border-radius: 10px;
+  box-shadow: 0px 0px 18px rgba(0, 0, 0, 25);
+  align-items: center;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.image {
+  height: 300px;
+  width: 100%;
+  background-color: rgb(197, 227, 255);
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px 5px 0 0;
+  box-sizing: border-box;
+}
+h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.container .wrapper .right .card p {
+  margin-bottom: 10px;
+}
