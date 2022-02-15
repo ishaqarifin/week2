@@ -1,73 +1,70 @@
-let blogs = []
+let blogs = [];
 
-function addBlog(event){
+function addBlog(event) {
+  event.preventDefault();
 
-    event.preventDefault()
+  let title = document.getElementById("input-blog-title").value;
+  let start = document.getElementById("start-date").value;
+  let end = document.getElementById("end-date").value;
+  let content = document.getElementById("input-blog-content").value;
+  let image = document.getElementById("input-blog-image");
+  image = URL.createObjectURL(image.files[0]);
 
-    let title = document.getElementById('input-blog-title').value
-    let start = document.getElementById('start-date').value
-    let end = document.getElementById('end-date').value
-    let content = document.getElementById('input-blog-content').value
-    let image = document.getElementById('input-blog-image')
-    image = URL.createObjectURL(image.files[0])
+  let diffTime = new Date(end) - new Date(start);
+  let diffDay = Math.floor(diffTime / (1000 * 3600 * 23));
+  // if (diffDay >= 1) {
+  //   return Math.floor(diffDay) + ' day';
+  // }
+  let diffMonth = Math.floor(diffDay / 30);
+  let dm = Math.floor(diffDay - diffMonth * 30);
 
-    let diffTime = new Date(end) - new Date(start);
-    let diffDay = Math.floor (diffTime / (1000 * 3600 * 23));
-    // if (diffDay >= 1) {
-    //   return Math.floor(diffDay) + ' day';
-    // }
-    let diffMonth = Math.floor (diffDay / 30);
-    let dm = Math.floor (diffDay - (diffMonth * 30))
-
-    var vcheckbox = document.forms[0];
-    var icon = "";
-    var i;
-    for (i = 0; i < vcheckbox.length; i++) {
-        if (vcheckbox[i].checked) {
-        icon = icon + vcheckbox[i].value + "";
-        console.log({icon});
-        }
+  var vcheckbox = document.forms[0];
+  var icon = "";
+  var i;
+  for (i = 0; i < vcheckbox.length; i++) {
+    if (vcheckbox[i].checked) {
+      icon = icon + vcheckbox[i].value + "";
+      console.log({ icon });
     }
+  }
 
-    let blog = {
-        title,
-        start,
-        end,
-        content,
-        image,
-        diffDay,
-        diffMonth,
-        dm,
-        icon,
-        postedAt: new Date(),
-    }
+  let blog = {
+    title,
+    start,
+    end,
+    content,
+    image,
+    diffDay,
+    diffMonth,
+    dm,
+    icon,
+    postedAt: new Date(),
+  };
 
+  let test = document.getElementById("contents");
+  test.innerHTML = firstBlogContent;
+  console.table(blog);
 
-    let test = document.getElementById('contents')
-    test.innerHTML = firstBlogContent
-    // console.table(blog)
+  let array = [title, content, image];
 
-    let array = [title, content, image]
+  blogs.push(blog);
 
-    blogs.push(blog)
+  // console.table(blogs)
 
-    // console.table(blogs)
-
-    renderBlog()
+  renderBlog();
 }
 
 function renderBlog() {
+  let lengData = blogs.length;
 
-    let lengData = blogs.length
+  let icon = "assets/mail.png";
 
-    let icon = "assets/mail.png"
+  let blogContainer = document.getElementById(`contents`);
+  blogContainer.innerHTML = firstBlogContent();
 
-    let blogContainer = document.getElementById(`contents`)
-    blogContainer.innerHTML = firstBlogContent()
-
-    let i = 0
-    for(i ; i < lengData; i++){
-        blogContainer.innerHTML += `
+  let i = 0;
+  for (i; i < lengData; i++) {
+    blogContainer.innerHTML += `
         <div class="blog-list-item">
           <div class="blog-image">
           <a href='blog-detail.html?judul=${blogs[i].title}&images=${blogs[i].image}&start=${blogs[i].start}&end=${blogs[i].end}&dm=${blogs[i].dm}&diffMonth=${blogs[i].diffMonth}&icon=${blogs[i].icon}&content=${blogs[i].content}'
@@ -95,9 +92,9 @@ function renderBlog() {
             </div>
           </div>
         </div>
-        `
-    }
-console.log({blogs});
+        `;
+  }
+  // console.log({blogs});
 }
 
 function getDistanceTime(time) {
@@ -110,16 +107,16 @@ function getDistanceTime(time) {
   const dayDistance = distance / (miliseconds * secondsInMinute * hoursInDay);
 
   if (dayDistance >= 1) {
-    return Math.floor(dayDistance) + ' day ago';
+    return Math.floor(dayDistance) + " day ago";
   } else {
     // Convert to hour
     const hourDistance = Math.floor(distance / (1000 * 60 * 60));
     if (hourDistance > 0) {
-      return hourDistance + ' hour ago';
+      return hourDistance + " hour ago";
     } else {
       // Convert to minute
       const minuteDistance = Math.floor(distance / (1000 * 60));
-      return minuteDistance + ' minute ago';
+      return minuteDistance + " minute ago";
     }
   }
 }
@@ -136,7 +133,7 @@ function getFullTime(time) {
 }
 
 function firstBlogContent() {
-    return `<div class="blog-list-item">
+  return `<div class="blog-list-item">
     <div class="blog-image">
       <img src="assets/blog-img.png" alt="" />
     </div>
@@ -171,10 +168,10 @@ function firstBlogContent() {
     </div>
   </div>
       `;
-  }
+}
 
 function passvalues() {
-  var firstname=document.getElementById("input-blog-title").value
-  localStorage.setItem("textvalue", firstname)
+  var firstname = document.getElementById("input-blog-title").value;
+  localStorage.setItem("textvalue", firstname);
   return false;
 }
